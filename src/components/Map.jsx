@@ -44,8 +44,6 @@ function Map() {
     geolocationPosition?.lat === mapPosition[0] &&
     geolocationPosition?.lng === mapPosition[1];
 
-  console.log("geoPos", geolocationPosition);
-  console.log("mapPos", mapPosition);
   return (
     <div className={styles.mapContainer}>
       {!geolocationPosition || !mapPosIsGeolocationPos ? (

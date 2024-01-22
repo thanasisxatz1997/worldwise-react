@@ -17,8 +17,6 @@ function CountryList() {
     else return array;
   }, []);
   // const countries = cities.filter((city) => !cities.includes(city));
-  console.log("Countries");
-  console.log(countries);
   return (
     <ul className={styles.countryList}>
       {countries.map((country) => (

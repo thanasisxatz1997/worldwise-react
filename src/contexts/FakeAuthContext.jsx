@@ -3,7 +3,7 @@ import { createContext, useContext, useReducer } from "react";
 const AuthContext = createContext();
 
 function reducer(state, action) {
-  switch (action) {
+  switch (action.type) {
     case "login":
       return { ...state, user: action.payLoad, isAuthenticated: true };
     case "logout":
@@ -27,11 +27,13 @@ function AuthProvider({ children }) {
     reducer,
     initialState
   );
+
   function login(email, password) {
     if (email === FAKE_USER.email && password === FAKE_USER.password) {
       dispatch({ type: "login", payLoad: FAKE_USER });
     }
   }
+
   function logout() {
     dispatch({ type: "logout" });
   }
@@ -47,6 +49,7 @@ function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined)
     throw new Error("Auth context was used outside of AuthProvider");
+  return context;
 }
 
 export { AuthProvider, useAuth };

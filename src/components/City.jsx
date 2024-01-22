@@ -26,9 +26,6 @@ function City() {
     [id]
   );
 
-  console.log(id);
-  // TEMP DATA
-
   const { cityName, emoji, date, notes } = currentCity;
 
   if (isLoading) return <Spinner></Spinner>;
